@@ -5,7 +5,7 @@
 <jsp:setProperty name="loginBean" property="*" />
 
 <%
-boolean chk = loginBean.chkAccount();
+boolean chk = loginBean.chkAccount(session, request);
 %>
 
 <script>

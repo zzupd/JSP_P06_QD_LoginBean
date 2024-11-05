@@ -1,5 +1,8 @@
 package pkg.mem;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 public class LoginBean {
 
 	private String uidReal = "sample";
@@ -23,11 +26,16 @@ public class LoginBean {
 		this.upw = upw;
 	}
 
-	public boolean chkAccount() {
+	public boolean chkAccount(HttpSession session, HttpServletRequest req) {
 		
 		boolean passChk = false;
 		if (uid.equals(uidReal) && upw.equals(upwReal)) {
 			passChk = true;
+			String uid = req.getParameter("uid");
+			session.setAttribute("sid", uid);
+			// 세션은 글로벌 변수
+			session.setMaxInactiveInterval(30);
+			
 		}
 		
 		return passChk;

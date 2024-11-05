@@ -10,7 +10,11 @@
 </head>
 <body>
 	<div id="wrap" class="resWrap">
-		<h2>sample 님께서 로그인하셨습니다.</h2>
+<%
+String sid = (String)session.getAttribute("sid");
+
+%>	
+		<h2><%=sid %> 님께서 로그인하셨습니다.</h2>
 		<button type="button" id="btnBack">돌아가기</button>
 		
 	</div>
